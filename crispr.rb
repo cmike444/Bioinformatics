@@ -37,6 +37,9 @@ if crispr_sites
     # Print CRISPR results to screen
     puts "\n  #{index+1}.) #{site}\n"
   end
+
+  File.open("crispr_sites.txt", 'a+') {|f| f.write(crispr_sites) }
+  
 else
   #  If no CRISPR sites found
   puts "No CRISPR sites found."

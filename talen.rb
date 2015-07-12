@@ -53,6 +53,9 @@ if talen_sites
     puts "\n             Oca2:      #{oca2}"
     puts "                        #{oca2_complement}\n\n"
   end
+
+  File.open("talen_sites.txt", 'a+') {|f| f.write(talen_sites) }
+  
 else
    #  If no TALEN sites found
   puts "No TALEN sites found."
