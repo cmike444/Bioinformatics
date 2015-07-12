@@ -9,8 +9,7 @@ sequence = Bio::Sequence::NA.new(file.read).upcase
 
 # Counts sequence length (base pairs)
 sequence_length = sequence.length
-puts " "
-puts "Sequence is #{sequence_length} base pairs."
+puts "\nSequence is #{sequence_length} base pairs."
 
 # TALEN Regular Expression Pattern 
 # Matches "T" at beginning
@@ -19,14 +18,13 @@ puts "Sequence is #{sequence_length} base pairs."
 talen = /[T].{45}[A]/
 
 # Searches "sequence" for talen pattern
-puts " "
-puts "Searching for TALEN sites..."
+puts "\nSearching for TALEN sites..."
 talen_sites = sequence.scan(talen) 
 
 # If TALEN sites found, print them to screen
 # Otherwise, print "none found" to the screen
 if talen_sites
-  puts "Found #{talen_sites.length} talen sites from #{sequence_length} base pairs."
+  puts "\nFound #{talen_sites.length} talen sites from #{sequence_length} base pairs."
   talen_sites.each_with_index do |site, index|
     
     # Turn TALEN site into Bio:Sequence
@@ -49,15 +47,11 @@ if talen_sites
     oca2_complement = oca2.complement.reverse.upcase
 
     # Print TALEN results to screen
-    puts " "
-    puts "  #{index+1}.) #{site}"
-    puts " "
-    puts "             Wild Type: #{site}"
+    puts "\n  #{index+1}.) #{site}\n"
+    puts "\n             Wild Type: #{site}"
     puts "                        #{site_complement}"
-    puts " "
-    puts "             Oca2:      #{oca2}"
-    puts "                        #{oca2_complement}"
-    puts " "
+    puts "\n             Oca2:      #{oca2}"
+    puts "                        #{oca2_complement}\n\n"
   end
 else
    #  If no TALEN sites found

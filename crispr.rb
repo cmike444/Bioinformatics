@@ -9,8 +9,7 @@ sequence = Bio::Sequence::NA.new(file.read).upcase
 
 # Counts sequence length (base pairs)
 sequence_length = sequence.length
-puts " "
-puts "Sequence is #{sequence_length} base pairs."
+puts "\nSequence is #{sequence_length} base pairs."
 
 # CRISPR Regular Expression Pattern
 # Matches "GG" at beginning
@@ -19,14 +18,13 @@ puts "Sequence is #{sequence_length} base pairs."
 crispr = /[G][G].{19}[G][G]/
 
 # Searches "sequence" for CRISPR pattern
-puts " "
-puts "Searching for CRISPR sites..."
+puts "\nSearching for CRISPR sites..."
 crispr_sites = sequence.scan(crispr)
 
 # If CRISPR sites found, print them to screen
 # Otherwise, print "none found" to the screen
 if crispr_sites
-  puts "Found #{crispr_sites.length} CRISPR sites from #{sequence_length} base pairs."
+  puts "\nFound #{crispr_sites.length} CRISPR sites from #{sequence_length} base pairs."
   crispr_sites.each_with_index do |site, index|
     
     # Turn CRISPR site into Bio:Sequence
@@ -37,9 +35,7 @@ if crispr_sites
     site_complement = site.complement.reverse.upcase
 
     # Print CRISPR results to screen
-    puts " "
-    puts "  #{index+1}.) #{site}"
-    puts " "
+    puts "\n  #{index+1}.) #{site}\n"
   end
 else
   #  If no CRISPR sites found
