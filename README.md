@@ -28,9 +28,9 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
     #
     #         Oca2:      TCCCCTGATTCTGTGGTATTACCGATAACCGCCTTTGAGTGAGCTGA
     #                    AGGGGACTAAGACACCATAATGGCTATTGGCGGAAACTCACTCGACT
-    #
-    # ...
-    #
+    
+      ...
+  
 
 
     ruby crispr.rb
@@ -40,9 +40,9 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
     # Found 13 CRISPR sites from 3531 base pairs.
 
     # 1.) GGCCGATTCATTAATGCAGCTGG
-    #
-    # ...
-    #
+    
+      ...
+    
 
 ```
 
