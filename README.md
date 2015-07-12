@@ -46,4 +46,4 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
 
 ```
 
-**Step 4.)** Find results in script *name*_sites.txt
+**Step 4.)** Find results in on screen or in *script*_sites.txt
