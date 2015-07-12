@@ -9,13 +9,13 @@ Clone the repository
 ```
 
 ## Workflow
-**Step 2.)** Fill dna.txt with correct data
+**Step 1.)** Fill dna.txt with correct data
 
 ```ruby
     open dna.txt
 ```    
 
-**Step 3.)** Run scripts on dna.txt
+**Step 2.)** Run scripts on dna.txt
 
 ```ruby
 
@@ -46,7 +46,7 @@ Clone the repository
 
 ```
 
-**Step 4.)** Find results on screen or in *script*_sites.txt
+**Step 3.)** Find results on screen or in *script*_sites.txt
 
 ```ruby
 ["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", ...]
