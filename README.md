@@ -51,3 +51,9 @@ Clone the repository
 ```ruby
 ["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", ...]
 ```
+
+## Methods
+| Technologies  | Description   |
+| ------------- |:-------------:|
+| TALEN       | **_TBD_** | 
+| CRISPR      | **_TBD_**      |
