@@ -16,4 +16,4 @@ From inside the Bioinformatics folder, you can run all helper scripts.
 
     ruby crispr.rb
 
-**Step 4.)** Find results in script name_sites.txt
+**Step 4.)** Find results in script *name*_sites.txt
