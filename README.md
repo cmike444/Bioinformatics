@@ -1,15 +1,19 @@
 # Bioinformatics
 Useful tools written in ruby to aid research with DNA and genetics engineering.
 
-**Step 1.)** Clone the repository 
+## Getting Setup
+Clone the repository 
 ```ruby
     git clone https://github.com/cmike444/Bioinformatics.git
     cd Bioinformatics
 ```
 
-From inside the Bioinformatics folder, you can run any ruby scripts.
-
+## Workflow
 **Step 2.)** Fill dna.txt with correct data
+
+```ruby
+    open dna.txt
+```    
 
 **Step 3.)** Run scripts on dna.txt
 
@@ -47,3 +51,7 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
 ```
 
 **Step 4.)** Find results on screen or in *script*_sites.txt
+
+```ruby
+["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", "TTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGA", "TTAATACGCGTACCGCTAGCCAGGAAGAGTTTGTAGAAACGCAAAAA", "TGCTTAGTTTGATGCCTGGCAGTTTATGGCGGGCGTCCTGCCCGCCA", "TTGCTTCACAACGTTCAAATCCGCTCCCGGCGGATTTGTCCTACTCA", ...]
+```
