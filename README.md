@@ -6,7 +6,7 @@ Useful tools written in ruby to aid research with DNA and genetics engineering.
     git clone https://github.com/cmike444/Bioinformatics.git
     cd Bioinformatics
 
-From inside the Bioinformatics folder, you can run all helper scripts.
+From inside the Bioinformatics folder, you can run any ruby scripts.
 
 **Step 2.)** Fill dna.txt with correct data
 
