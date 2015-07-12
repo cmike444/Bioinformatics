@@ -34,12 +34,14 @@ Clone the repository
     #                    AGGGGACTAAGACACCATAATGGCTATTGGCGGAAACTCACTCGACT
     
 
+    ruby crispr.rb
 
     # Searching for CRISPR sites...
     #
     # Found 13 CRISPR sites from 3531 base pairs.
 
     # 1.) GGCCGATTCATTAATGCAGCTGG
+    
     
 
 ```
