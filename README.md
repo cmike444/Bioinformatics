@@ -11,9 +11,10 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
 **Step 2.)** Fill dna.txt with correct data
 
 **Step 3.)** Run scripts on dna.txt
-  
+
+```ruby
     ruby talen.rb
-    
+
     # Searching for TALEN sites...
     #
     # Found 53 talen sites from 3531 base pairs.
@@ -27,5 +28,6 @@ From inside the Bioinformatics folder, you can run any ruby scripts.
     #                    AGGGGACTAAGACACCATAATGGCTATTGGCGGAAACTCACTCGACT
 
     ruby crispr.rb
+```
 
 **Step 4.)** Find results in script *name*_sites.txt
