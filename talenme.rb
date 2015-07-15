@@ -40,18 +40,18 @@ if talen_sites
     sequence_spacer2 = site[23..30]
     sequence_talen2 = site[31..47]
 
-    # Build Oca2 sequence
-    # Create Oca2 Bio::Sequence
-    # Create Oca2 complement
-    oca2 = Bio::Sequence::NA.new("#{sequence_talen1}#{sequence_spacer2}#{sequence_spacer1}#{sequence_talen2}").upcase
-    oca2_complement = oca2.complement.reverse.upcase
+    # Build gene name sequence
+    # Create gene name Bio::Sequence
+    # Create gene name complement
+    genename = Bio::Sequence::NA.new("#{sequence_talen1}#{sequence_spacer2}#{sequence_spacer1}#{sequence_talen2}").upcase
+    genename_complement = genename.complement.reverse.upcase
 
     # Print TALEN results to screen
     puts "\n  #{index+1}.) #{site}\n"
-    puts "\n             Wild Type: #{site}"
-    puts "                        #{site_complement}"
-    puts "\n             gene name:      #{oca2}"
-    puts "                        #{gene name_complement}\n\n"
+    puts "\n             Wild Type:   #{site}"
+    puts "                            #{site_complement}"
+    puts "\n             genename:    #{genename}"
+    puts "                          #{genename_complement}\n\n"
   end
 
   File.open("talen_sites.txt", 'a+') {|f| f.write(talen_sites) }
