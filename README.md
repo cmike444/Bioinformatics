@@ -21,19 +21,18 @@ Paste data into dna.txt
     open dna.txt
 ```    
 
-Run microhomology on dna.txt
-
-```ruby
-    ruby mh.rb
-```
-
 Tweak microhomology strategy
 
 ```ruby
     # The microhomology strategy
     mh_strategy = [6, 9, 12, 24, 48, 60]
 ```
-    
+
+Run microhomology on dna.txt
+
+```ruby
+    ruby mh.rb
+```
 
 A .json file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed on screen in the console and the .json file will open immediately using your default text editor.
 
