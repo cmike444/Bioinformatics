@@ -15,7 +15,7 @@ Clone the repository
 ```
 
 ## Workflow
-**Step 1.)** Fill dna.txt with correct data
+**Step 1.)** Paste data into dna.txt
 
 ```ruby
     open dna.txt
@@ -28,7 +28,7 @@ Clone the repository
 ```
     
 
-**Step 3.)** Results open in text editor and save to .txt file in **_targets/crispr/_** folder
+**Step 3.)** A file will be created containing the results and will be saved as a .json file in **_targets/crispr/_** folder. Additionally, results will be displayed on screen and the file will open immediately using your default text editor.
 
 ```javascript
     [{
