@@ -21,34 +21,9 @@ Clone the repository
     open dna.txt
 ```    
 
-**Step 2.)** Run scripts on dna.txt
+**Step 2.)** Run microhomology on dna.txt
 
 ```ruby
-
-    ruby talen.rb
-
-    # Searching for TALEN sites...
-    #
-    # Found 53 talen sites from 3531 base pairs.
-    #
-    # 1.) TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA
-    #
-    #         Wild Type: TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA
-    #                    AGGGGACTAAGACACCTATTGGCATAATGGCGGAAACTCACTCGACT
-    #
-    #         Oca2:      TCCCCTGATTCTGTGGTATTACCGATAACCGCCTTTGAGTGAGCTGA
-    #                    AGGGGACTAAGACACCATAATGGCTATTGGCGGAAACTCACTCGACT
-    
-
-    ruby crispr.rb
-
-    # Searching for CRISPR sites...
-    #
-    # Found 13 CRISPR sites from 3531 base pairs.
-
-    # 1.) GGCCGATTCATTAATGCAGCTGG
-
-
     ruby mh.rb
 ```
 
