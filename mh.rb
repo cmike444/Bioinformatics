@@ -19,9 +19,9 @@ sequence.scan(crispr) do |crispr|
   
   # Compile first set of data to JSON
   targets << {
+              "crispr" => crispr,
               "first" => Regexp.last_match.offset(0).first, 
               "last" => Regexp.last_match.offset(0).last,
-              "crispr" => crispr,
               "microhomology" => []
               }
 end

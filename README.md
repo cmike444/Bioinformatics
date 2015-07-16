@@ -15,53 +15,76 @@ Clone the repository
 ```
 
 ## Workflow
-**Step 1.)** Paste data into dna.txt
+Paste data into dna.txt
 
 ```ruby
     open dna.txt
 ```    
 
-**Step 2.)** Run microhomology on dna.txt
+Run microhomology on dna.txt
 
 ```ruby
     ruby mh.rb
 ```
+
+Tweak microhomology strategy
+
+```ruby
+    # The microhomology strategy
+    mh_strategy = [6, 9, 12, 24, 48, 60]
+```
     
 
-**Step 3.)** A .json file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed on screen in the console and the .json file will open immediately using your default text editor.
+A .json file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed on screen in the console and the .json file will open immediately using your default text editor.
 
 ```javascript
     [{
-        "prime": true,
-        "first": 155,
-        "last": 178,
-        "crispr": "GGCCGATTCATTAATGCAGCTGG",
-        "microhomology": [
-          {
-            "first": 148,
-            "last": 154,
-            "mh6": "GCGCGTT"
-          },
-          {
-            "first": 145,
-            "last": 154,
-            "mh9": "CCCGCGCGTT"
-          },
-          {
-            "first": 142,
-            "last": 154,
-            "mh12": "CTCCCCGCGCGTT"
-          },
-          {
-            "first": 130,
-            "last": 154,
-            "mh24": "CGCAAACCGCCTCTCCCCGCGCGTT"
-          },
-          {
-            "first": 106,
-            "last": 154,
-            "mh48": "GAGGAAGCGGAAGAGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTT"
-          }
-        ]
-      }]
+    "crispr": "CCCAATACGCAAACCGCCTCTCC",
+    "first": 123,
+    "last": 146,
+    "microhomology": [
+      {
+        "strategy": "MH6",
+        "first": 116,
+        "last": 122,
+        "mh_5": "AAGAGCG",
+        "mh_3": "TTCTCGC"
+      },
+      {
+        "strategy": "MH9",
+        "first": 113,
+        "last": 122,
+        "mh_5": "CGGAAGAGCG",
+        "mh_3": "GCCTTCTCGC"
+      },
+      {
+        "strategy": "MH12",
+        "first": 110,
+        "last": 122,
+        "mh_5": "AAGCGGAAGAGCG",
+        "mh_3": "TTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH24",
+        "first": 98,
+        "last": 122,
+        "mh_5": "CAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "GTCACTCGCTCCTTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH48",
+        "first": 74,
+        "last": 122,
+        "mh_5": "GCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "CGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH60",
+        "first": 62,
+        "last": 122,
+        "mh_5": "CCGCTCGCCGCAGCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "GGCGAGCGGCGTCGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
+      }
+    ]
+  }]
 ```
