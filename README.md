@@ -52,7 +52,7 @@ Clone the repository
 
 ```
 
-**Step 3.)** Find results on screen or in *script*_sites.txt
+**Step 3.)** Results open in text editor and saved to .txt file in *script*_sites folder
 
 ```ruby
 ["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", ...]
