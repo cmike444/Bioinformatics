@@ -28,7 +28,7 @@ Clone the repository
 ```
     
 
-**Step 3.)** Results open in text editor and save to .txt file in Sites/ folder
+**Step 3.)** Results open in text editor and save to .txt file in targets/crispr/ folder
 
 ```javascript
     [{
