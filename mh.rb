@@ -14,16 +14,11 @@ crispr = /[G][G].{19}[G][G]|[C][C].{19}[C][C]/
 # Initialize targets
 targets = []
 
-# Scan for matches and evaluate prime
-# Create index and initialize microhomology
+# Scan for matches, Create index and initialize microhomology
 sequence.scan(crispr) do |crispr|
-
-  # If 5' is true
-  prime = 5 ? crispr[0] == "G" : prime = 3
   
-  # Compile data to JSON
+  # Compile first set of data to JSON
   targets << {
-              "prime" => prime, 
               "first" => Regexp.last_match.offset(0).first, 
               "last" => Regexp.last_match.offset(0).last,
               "crispr" => crispr,
@@ -32,22 +27,25 @@ sequence.scan(crispr) do |crispr|
 end
 
 if targets
-
   targets.each do |target|
 
     # The microhomology strategy
-    mh_strategy = [6, 9, 12, 24, 48]
+    mh_strategy = [6, 9, 12, 24, 48, 60]
 
     # Create each MH
     mh_strategy.each do |m|
 
+
+      # Double strand break
       mh_last_char = target["first"] - 1
       mh_first_char = mh_last_char - m
 
       target["microhomology"] << { 
+        "strategy" => "MH#{m}",
         "first" => mh_first_char,
         "last" => mh_last_char,
-        "mh#{m}" => sequence[mh_first_char..mh_last_char]
+        "mh_5" => sequence[mh_first_char..mh_last_char],
+        "mh_3" => sequence[mh_first_char..mh_last_char].complement.reverse.upcase
       }
     end
   end

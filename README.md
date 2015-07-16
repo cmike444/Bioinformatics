@@ -1,5 +1,5 @@
 # Bioinformatics
-Useful tools written in ruby to aid research with DNA and genetics engineering.
+Useful tools written in ruby to aid microhomology research for genetic engineering.
 
 ## Getting Setup
 
@@ -28,7 +28,7 @@ Clone the repository
 ```
     
 
-**Step 3.)** A file will be created containing the results and will be saved as a .json file in **_targets/crispr/_** folder. Additionally, results will be displayed on screen and the file will open immediately using your default text editor.
+**Step 3.)** A .json file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed on screen in the console and the .json file will open immediately using your default text editor.
 
 ```javascript
     [{
