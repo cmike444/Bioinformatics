@@ -2,6 +2,12 @@
 Useful tools written in ruby to aid research with DNA and genetics engineering.
 
 ## Getting Setup
+
+Install Bio gem
+```ruby
+    gem install bio
+```
+
 Clone the repository 
 ```ruby
     git clone https://github.com/cmike444/Bioinformatics.git
