@@ -34,7 +34,7 @@ Run microhomology on dna.txt
     ruby mh.rb
 ```
 
-A .json file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed on screen in the console and the .json file will open immediately using your default text editor.
+A JSON file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed in the console and will opened immediately by your default text editor.
 
 ```javascript
     [{
