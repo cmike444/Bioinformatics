@@ -26,6 +26,9 @@ Clone the repository
 ```ruby
     ruby mh.rb
 ```
+    
+
+**Step 3.)** Results open in text editor and save to .txt file in Sites/ folder
 
 ```javascript
     [{
@@ -61,14 +64,4 @@ Clone the repository
           }
         ]
       }]
-```
-    
-    
-
-```
-
-**Step 3.)** Results open in text editor and save to .txt file in Sites/ folder
-
-```ruby
-["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", ...]
 ```
