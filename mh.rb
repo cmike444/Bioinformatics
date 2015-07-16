@@ -1,26 +1,71 @@
 require 'rubygems'
 require 'fileutils'
+require 'json'
 require 'bio'
 
+# Read DNA from .txt, create new Bio::Sequence
 file = File.open('dna.txt', 'r')
 sequence = Bio::Sequence::NA.new(file.read).upcase
-puts "Sequence has #{sequence.length} base pairs."
+puts "Searching #{sequence.length} base pairs for CRISPR targets..."
 
-crispr = /[G][G].{19}[G][G]/
-crispr_reverse = /[C][C].{19}[C][C]/
+# Regular Expression for CRISPR (forwards/backwards)
+crispr = /[G][G].{19}[G][G]|[C][C].{19}[C][C]/
 
-puts "Searching both polarities for CRISPR sites..."
-polar_5 = sequence.scan(crispr) ? sequence.scan(crispr) : (puts "None found in 5'")
-polar_3 = sequence.scan(crispr_reverse) ? sequence.scan(crispr_reverse) : (puts "None found in 3'")
-sites = polar_5 + polar_3
+# Initialize targets
+targets = []
 
-if sites
-  crispr_directory = "crispr_sites/"
-  crispr_file = "#{crispr_directory}crisper-sites-#{Time.now.strftime("%m%d%Y-%M-%S")}.txt"
-  FileUtils.mkdir_p(File.dirname(crispr_directory)) 
-  File.open(crispr_file, 'w+') {|f| f.write(sites) }
-  puts "Found #{sites.length} sites total. #{polar_5.length} sites in 5', #{polar_3.length} sites in 3'\nCRISPR sites exported to #{crispr_file}."
+# Scan for matches and evaluate prime
+# Create index and initialize microhomology
+sequence.scan(crispr) do |crispr|
+
+  # If 5' is true
+  prime = 5 ? crispr[0] == "G" : prime = 3
+  
+  # Compile data to JSON
+  targets << {
+              "prime" => prime, 
+              "first" => Regexp.last_match.offset(0).first, 
+              "last" => Regexp.last_match.offset(0).last,
+              "crispr" => crispr,
+              "microhomology" => []
+              }
+end
+
+if targets
+
+  targets.each do |target|
+
+    # The microhomology strategy
+    mh_strategy = [6, 9, 12, 24, 48]
+
+    # Create each MH
+    mh_strategy.each do |m|
+
+      mh_last_char = target["first"] - 1
+      mh_first_char = mh_last_char - m
+
+      target["microhomology"] << { 
+        "first" => mh_first_char,
+        "last" => mh_last_char,
+        "mh#{m}" => sequence[mh_first_char..mh_last_char]
+      }
+    end
+  end
+  
+  # CRISPR target file path
+  crispr_file = "targets/crispr/crisper-#{Time.now.strftime("%m%d%Y-%M-%S")}.json"
+  
+  # Unless /targets/crispr folders exist, create them
+  FileUtils.mkdir_p("targets/crispr") unless Dir.exists?("targets/crispr")
+
+  # Write targets in file. If it doesn't exist, create it
+  File.open(crispr_file, 'w+') {|f| f.write(JSON.pretty_generate(targets)) }
+  puts "Found #{targets.length} targets.\nTargets exported to #{crispr_file}."
+  
+  # Print targets to screen and open file in default text editor
+  puts JSON.pretty_generate(targets)
   system("open #{crispr_file}")
+
 else
-  puts "No CRISPR sites found."
+  puts "Sorry, no CRISPR targets found."
 end
