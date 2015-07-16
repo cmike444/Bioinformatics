@@ -50,6 +50,8 @@ Clone the repository
 
 
     ruby mh.rb
+```
+
 ```javascript
     [{
         "prime": true,
