@@ -37,7 +37,7 @@ if targets
     mh_strategy.each do |m|
 
       # Double strand break
-      mh_last_char = target["last"] - 7
+      mh_last_char = target["first"] + 5
       mh_first_char = mh_last_char - (m - 1)
 
       target["microhomology"] << { 
