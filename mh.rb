@@ -9,13 +9,14 @@ sequence = Bio::Sequence::NA.new(file.read).upcase
 puts "Searching #{sequence.length} base pairs for CRISPR targets..."
 
 # Regular Expression for CRISPR (forwards/backwards)
-crispr = /[G][G].{19}[G][G]|[C][C].{19}[C][C]/
+crispr_forward = /[G][G].{19}[G][G]/
+crispr_reverse = /[C][C].{19}[C][C]/
 
 # Initialize targets
 targets = []
 
 # Scan for matches, Create index and initialize microhomology
-sequence.scan(crispr) do |crispr|
+sequence.scan(crispr_forward) do |crispr|
   
   # Compile first set of data to JSON
   targets << {
@@ -35,9 +36,8 @@ if targets
     # Create each MH
     mh_strategy.each do |m|
 
-
       # Double strand break
-      mh_last_char = target["first"] - 1
+      mh_last_char = target["first"] + 6
       mh_first_char = mh_last_char - m
 
       target["microhomology"] << { 
