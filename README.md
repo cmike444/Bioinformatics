@@ -1,4 +1,4 @@
-# Bioinformatics
+# Microhomolgy
 Useful tools written in ruby to aid microhomology research for genetic engineering.
 
 ## Getting Setup
@@ -28,61 +28,54 @@ Tweak microhomology strategy
     mh_strategy = [6, 9, 12, 24, 48, 60]
 ```
 
-Run microhomology on dna.txt
+Run microhomology on dna.txt. Script searches for target sites on both forward and reverse strands.
 
 ```ruby
-    ruby mh.rb
+    ruby crispr.rb
 ```
 
 A JSON file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed in the console and will opened immediately by your default text editor.
 
 ```javascript
     [{
-    "crispr": "CCCAATACGCAAACCGCCTCTCC",
-    "first": 123,
-    "last": 146,
+    "target": "GGCCGATTCATTAATGCAGCTGG",
+    "first": 155,
+    "last": 178,
     "microhomology": [
       {
-        "strategy": "MH6",
-        "first": 116,
-        "last": 122,
-        "mh_5": "AAGAGCG",
-        "mh_3": "TTCTCGC"
+        "strategy": "mh6",
+        "forward_strand": "TAATGC",
+        "reverse_strand": "ATTACG",
+        "mh6_oligo_forward": "TAATGCAGCTGG",
+        "mh6_oligo_reverse": "ATTACGTCGACC"
       },
       {
-        "strategy": "MH9",
-        "first": 113,
-        "last": 122,
-        "mh_5": "CGGAAGAGCG",
-        "mh_3": "GCCTTCTCGC"
+        "strategy": "mh9",
+        "forward_strand": "CATTAATGC",
+        "reverse_strand": "GTAATTACG",
+        "mh9_oligo_forward": "CATTAATGCAGCTGG",
+        "mh9_oligo_reverse": "GTAATTACGTCGACC"
       },
       {
-        "strategy": "MH12",
-        "first": 110,
-        "last": 122,
-        "mh_5": "AAGCGGAAGAGCG",
-        "mh_3": "TTCGCCTTCTCGC"
+        "strategy": "mh12",
+        "forward_strand": "ATTCATTAATGC",
+        "reverse_strand": "TAAGTAATTACG",
+        "mh12_oligo_forward": "ATTCATTAATGCAGCTGG",
+        "mh12_oligo_reverse": "TAAGTAATTACGTCGACC"
       },
       {
-        "strategy": "MH24",
-        "first": 98,
-        "last": 122,
-        "mh_5": "CAGTGAGCGAGGAAGCGGAAGAGCG",
-        "mh_3": "GTCACTCGCTCCTTCGCCTTCTCGC"
+        "strategy": "mh24",
+        "forward_strand": "GCGCGTTGGCCGATTCATTAATGC",
+        "reverse_strand": "CGCGCAACCGGCTAAGTAATTACG",
+        "mh24_oligo_forward": "GCGCGTTGGCCGATTCATTAATGCAGCTGG",
+        "mh24_oligo_reverse": "CGCGCAACCGGCTAAGTAATTACGTCGACC"
       },
       {
-        "strategy": "MH48",
-        "first": 74,
-        "last": 122,
-        "mh_5": "GCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
-        "mh_3": "CGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
-      },
-      {
-        "strategy": "MH60",
-        "first": 62,
-        "last": 122,
-        "mh_5": "CCGCTCGCCGCAGCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
-        "mh_3": "GGCGAGCGGCGTCGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
+        "strategy": "mh48",
+        "forward_strand": "CCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGC",
+        "reverse_strand": "GGTTATGCGTTTGGCGGAGAGGGGCGCGCAACCGGCTAAGTAATTACG",
+        "mh48_oligo_forward": "CCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGG",
+        "mh48_oligo_reverse": "GGTTATGCGTTTGGCGGAGAGGGGCGCGCAACCGGCTAAGTAATTACGTCGACC"
       }
     ]
   }]
