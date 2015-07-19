@@ -1,7 +1,13 @@
 # Bioinformatics
-Useful tools written in ruby to aid research with DNA and genetics engineering.
+Useful tools written in ruby to aid microhomology research for genetic engineering.
 
 ## Getting Setup
+
+Install Bio gem
+```ruby
+    gem install bio
+```
+
 Clone the repository 
 ```ruby
     git clone https://github.com/cmike444/Bioinformatics.git
@@ -9,45 +15,75 @@ Clone the repository
 ```
 
 ## Workflow
-**Step 1.)** Fill dna.txt with correct data
+Paste data into dna.txt
 
 ```ruby
     open dna.txt
 ```    
 
-**Step 2.)** Run scripts on dna.txt
+Tweak microhomology strategy
 
 ```ruby
-
-    ruby talen.rb
-
-    # Searching for TALEN sites...
-    #
-    # Found 53 talen sites from 3531 base pairs.
-    #
-    # 1.) TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA
-    #
-    #         Wild Type: TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA
-    #                    AGGGGACTAAGACACCTATTGGCATAATGGCGGAAACTCACTCGACT
-    #
-    #         Oca2:      TCCCCTGATTCTGTGGTATTACCGATAACCGCCTTTGAGTGAGCTGA
-    #                    AGGGGACTAAGACACCATAATGGCTATTGGCGGAAACTCACTCGACT
-    
-
-    ruby crispr.rb
-
-    # Searching for CRISPR sites...
-    #
-    # Found 13 CRISPR sites from 3531 base pairs.
-
-    # 1.) GGCCGATTCATTAATGCAGCTGG
-    
-    
-
+    # The microhomology strategy
+    mh_strategy = [6, 9, 12, 24, 48, 60]
 ```
 
-**Step 3.)** Find results on screen or in *script*_sites.txt
+Run microhomology on dna.txt
 
 ```ruby
-["TCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGA", ...]
+    ruby mh.rb
+```
+
+A JSON file containing the results will be saved in **_targets/crispr/_** folder. Additionally, results will be displayed in the console and will opened immediately by your default text editor.
+
+```javascript
+    [{
+    "crispr": "CCCAATACGCAAACCGCCTCTCC",
+    "first": 123,
+    "last": 146,
+    "microhomology": [
+      {
+        "strategy": "MH6",
+        "first": 116,
+        "last": 122,
+        "mh_5": "AAGAGCG",
+        "mh_3": "TTCTCGC"
+      },
+      {
+        "strategy": "MH9",
+        "first": 113,
+        "last": 122,
+        "mh_5": "CGGAAGAGCG",
+        "mh_3": "GCCTTCTCGC"
+      },
+      {
+        "strategy": "MH12",
+        "first": 110,
+        "last": 122,
+        "mh_5": "AAGCGGAAGAGCG",
+        "mh_3": "TTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH24",
+        "first": 98,
+        "last": 122,
+        "mh_5": "CAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "GTCACTCGCTCCTTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH48",
+        "first": 74,
+        "last": 122,
+        "mh_5": "GCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "CGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
+      },
+      {
+        "strategy": "MH60",
+        "first": 62,
+        "last": 122,
+        "mh_5": "CCGCTCGCCGCAGCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCG",
+        "mh_3": "GGCGAGCGGCGTCGGCTTGCTGGCTCGCGTCGCTCAGTCACTCGCTCCTTCGCCTTCTCGC"
+      }
+    ]
+  }]
 ```
