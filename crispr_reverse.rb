@@ -16,7 +16,7 @@ crispr_reverse = /[C][C].{19}[C][C]/
 targets = []
 
 # Scan for matches, Create index and initialize microhomology
-sequence.scan(crispr_forward) do |crispr|
+sequence.scan(crispr_reverse) do |crispr|
   
   # Compile first set of data to JSON
   targets << {
