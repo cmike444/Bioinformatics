@@ -30,7 +30,7 @@ if targets
   targets.each do |target|
 
     # The microhomology strategy
-    mh_strategy = [6, 9, 12, 24, 48]
+    mh_strategy = [12, 24, 48]
 
     # Create each MH
     mh_strategy.each do |m|
@@ -45,11 +45,9 @@ if targets
 
       # Output target information
       target["microhomology"] << { 
-        "strategy" => "mh#{m}",
-        "forward_strand" => sequence[mh_first_char..mh_last_char],
-        "reverse_strand" => sequence[mh_first_char..mh_last_char].complement.reverse.upcase,
-        "mh#{m}_oligo_forward" => sequence[mh_first_char...target["last"]],
-        "mh#{m}_oligo_reverse" => sequence[mh_first_char...target["last"]].complement.reverse.upcase
+        "homology_length" => "mh#{m}",
+        "mh#{m}_oligo_forward" => (sequence[mh_first_char...target["last"]].complement + sequence[mh_first_char..mh_last_char]).upcase,
+        "mh#{m}_oligo_reverse" => (sequence[mh_first_char...target["last"]].complement + sequence[mh_first_char..mh_last_char]).complement.upcase # (sequence[mh_first_char..mh_last_char].complement.reverse + sequence[mh_first_char...target["last"]]).upcase,
       }
     end
   end
